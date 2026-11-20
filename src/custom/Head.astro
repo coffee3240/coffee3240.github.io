@@ -8,3 +8,19 @@ type Props = {
   description: string;
 };
 ---
+
+<!-- GoatCounter 방문 집계. count.js는 첫 페이지만 세므로, 이후 페이지 이동(ClientRouter)은 직접 센다 -->
+<script
+  is:inline
+  async
+  data-goatcounter="https://coffee3240.goatcounter.com/count"
+  src="https://gc.zgo.at/count.js"></script>
+<script is:inline>
+  {
+    let first = true;
+    document.addEventListener("astro:page-load", () => {
+      if (first) return (first = false);
+      window.goatcounter?.count?.();
+    });
+  }
+</script>

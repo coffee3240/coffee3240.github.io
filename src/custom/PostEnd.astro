@@ -9,3 +9,54 @@ type Props = {
   post: CollectionEntry<"posts">;
 };
 ---
+
+<p class="text-muted-foreground mt-8 text-sm">
+  조회수 <span id="gc-views">-</span>
+</p>
+<div class="giscus mt-8"></div>
+
+<script is:inline data-astro-rerun>
+  (() => {
+    // 조회수: GoatCounter 설정에서 "Allow adding visitor counts on your website"를 켜야 응답함
+    fetch(
+      `https://coffee3240.goatcounter.com/counter/${encodeURIComponent(location.pathname)}.json`
+    )
+      .then(r => (r.ok ? r.json() : { count: "0" }))
+      .then(d => (document.getElementById("gc-views").textContent = d.count))
+      .catch(() => {});
+
+    // 댓글: giscus. 사이트 테마(data-theme)에 맞춰 시작하고, 테마를 바꾸면 따라 바뀜
+    const theme = () =>
+      document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    const s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.crossOrigin = "anonymous";
+    s.async = true;
+    Object.entries({
+      repo: "coffee3240/coffee3240.github.io",
+      repoId: "R_kgDOV0_c4A",
+      category: "Announcements",
+      categoryId: "DIC_kwDOV0_c4M4DLjne",
+      mapping: "pathname",
+      strict: "0",
+      reactionsEnabled: "1",
+      emitMetadata: "0",
+      inputPosition: "bottom",
+      theme: theme(),
+      lang: "ko",
+      loading: "lazy",
+    }).forEach(([k, v]) => (s.dataset[k] = v));
+    document.querySelector(".giscus").appendChild(s);
+
+    if (window.__giscusThemeSync) return;
+    window.__giscusThemeSync = true;
+    new MutationObserver(() =>
+      document
+        .querySelector("iframe.giscus-frame")
+        ?.contentWindow?.postMessage(
+          { giscus: { setConfig: { theme: theme() } } },
+          "https://giscus.app"
+        )
+    ).observe(document.documentElement, { attributeFilter: ["data-theme"] });
+  })();
+</script>
