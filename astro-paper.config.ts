@@ -21,10 +21,7 @@ export default defineAstroPaperConfig({
     dynamicOgImage: true,
     showArchives: true,
     showBackButton: true,
-    editPost: {
-      enabled: true,
-      url: "https://github.com/coffee3240/coffee3240.github.io/edit/main/",
-    },
+    editPost: { enabled: false },
     search: "pagefind",
     toc: true,
   },
