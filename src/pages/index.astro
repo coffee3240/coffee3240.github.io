@@ -10,6 +10,10 @@ import Socials from "@/components/Socials.astro";
 import Card from "@/components/Card.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getUniqueTags } from "@/utils/getUniqueTags";
+import { postFilter } from "@/utils/postFilter";
+import { slugifyStr } from "@/utils/slugify";
+import Tag from "@/components/Tag.astro";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -23,6 +27,14 @@ const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const homePath = getRelativeLocaleUrl(locale, "");
+
+const tagCount = (tag: string) =>
+  posts.filter(
+    post => postFilter(post) && post.data.tags.some(t => slugifyStr(t) === tag)
+  ).length;
+const tags = getUniqueTags(posts)
+  .map(t => ({ ...t, count: tagCount(t.tag) }))
+  .sort((a, b) => b.count - a.count);
 ---
 
 <Layout>
@@ -33,14 +45,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
     data-home-path={homePath}
     class="app-layout my-1"
   >
-    <section id="hero" class="border-border border-b pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        안녕하세요
-      </h1>{" "}
+    <section id="hero" class="pt-12 pb-10 sm:pt-16">
+      <h1 class="inline-block text-3xl font-bold sm:text-4xl">안녕하세요</h1>{
+        " "
+      }
       <a
         target="_blank"
         href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
-        class="inline-block"
+        class="ms-2 inline-block align-middle"
         aria-label="RSS Feed"
         title="RSS Feed"
       >
@@ -52,7 +64,9 @@ const homePath = getRelativeLocaleUrl(locale, "");
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>coffee3240의 개발 블로그입니다.</p>
+      <p class="text-muted-foreground mt-3 text-lg">
+        coffee3240의 개발 블로그입니다.
+      </p>
       {
         socials.length > 0 && (
           <div class="mt-4 flex max-sm:flex-col sm:items-center">
@@ -65,47 +79,62 @@ const homePath = getRelativeLocaleUrl(locale, "");
       }
     </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-border border-b": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">
-            {t.home.featured}
-          </h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
+    <div class="gap-12 lg:grid lg:grid-cols-[1fr_16rem]">
+      <div>
+        {
+          featuredPosts.length > 0 && (
+            <section
+              id="featured"
+              class:list={[
+                "pb-6",
+                { "border-border border-b": recentPosts.length > 0 },
+              ]}
+            >
+              <h2 class="text-2xl font-bold">{t.home.featured}</h2>
+              <ul>
+                {featuredPosts.map(data => (
+                  <Card variant="h3" {...data} />
+                ))}
+              </ul>
+            </section>
+          )
+        }
 
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">
-            {t.home.recentPosts}
-          </h2>
-          <ul>
-            {recentPosts.slice(0, postsConfig.perIndex).map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
+        {
+          recentPosts.length > 0 && (
+            <section id="recent-posts" class="pb-6">
+              <h2 class="text-2xl font-bold">{t.home.recentPosts}</h2>
+              <ul>
+                {recentPosts.slice(0, postsConfig.perIndex).map(data => (
+                  <Card variant="h3" {...data} />
+                ))}
+              </ul>
+            </section>
+          )
+        }
 
-    <div class="my-8 text-center">
-      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
-        {t.home.allPosts}
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
+        <div class="my-8 text-center">
+          <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
+            {t.home.allPosts}
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+        </div>
+      </div>
+
+      <aside class="max-lg:hidden">
+        <div class="bg-muted/60 sticky top-24 rounded-2xl p-6">
+          <h2 class="text-muted-foreground mb-4 text-sm font-semibold">
+            {t.nav.tags}
+          </h2>
+          <ul class="flex flex-wrap gap-2">
+            {
+              tags.map(({ tag, tagName, count }) => (
+                <Tag {tag} {tagName} {count} size="sm" />
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
     </div>
   </main>
   <Footer />

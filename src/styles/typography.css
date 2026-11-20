@@ -4,6 +4,8 @@
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
     @apply prose;
+    font-size: 1.0625rem;
+    line-height: 1.8;
 
     h1,
     h2,
@@ -11,10 +13,6 @@
     h4,
     th {
       @apply text-foreground mb-3;
-    }
-
-    h3 {
-      @apply italic;
     }
 
     p,
@@ -28,7 +26,7 @@
     }
 
     a {
-      @apply text-foreground hover:text-accent wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
+      @apply text-accent wrap-break-word underline-offset-4 hover:opacity-80 focus-visible:no-underline;
     }
 
     ul {
