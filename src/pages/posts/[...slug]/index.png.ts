@@ -7,6 +7,7 @@ import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
 import { getPostSlug } from "@/utils/getPostPaths";
 import { postFilter } from "@/utils/postFilter";
 import config from "@/config";
+import { loadKoreanFonts } from "@/utils/loadKoreanFonts";
 
 export async function getStaticPaths() {
   if (!config.features.dynamicOgImage) {
@@ -183,6 +184,9 @@ export const GET: APIRoute = async ({ props, url }) => {
           weight: 700,
           style: "normal",
         },
+        ...(await loadKoreanFonts(
+          props.data.title + props.data.author + config.site.title
+        )),
       ],
     }
   );

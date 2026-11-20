@@ -4,6 +4,7 @@ import sharp from "sharp";
 import { fontData, experimental_getFontFileURL } from "astro:assets";
 import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
 import config from "@/config";
+import { loadKoreanFonts } from "@/utils/loadKoreanFonts";
 
 export const GET: APIRoute = async context => {
   const fonts = fontData["--font-google-sans-code"];
@@ -165,6 +166,7 @@ export const GET: APIRoute = async context => {
           weight: 700,
           style: "normal",
         },
+        ...(await loadKoreanFonts(config.site.title + config.site.description)),
       ],
     }
   );
