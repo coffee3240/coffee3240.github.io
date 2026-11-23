@@ -2,12 +2,14 @@
 title: "포장지에 적힌 맛, 정말 느껴질까"
 description: "테이스팅 노트 체감 기록 앱을 만들기로 한 이유와 만들어 갈 방식"
 pubDatetime: 2026-11-20T16:20:00+09:00
-modDatetime: 2026-11-22T17:45:00+09:00
+modDatetime: 2026-11-23T10:45:00+09:00
 tags: ["tastingnote", "android"]
 ---
 
 > [!NOTE]
 > 이 글은 Claude와 함께 썼습니다. 사실 확인과 문장 정리는 Claude가, 판단과 경험은 제가 맡았습니다. [함께 쓰는 방식](/posts/writing-with-ai/)
+
+> 테이스팅 노트 앱을 처음부터 만들어 가는 기록의 시작(0단계)이다.
 
 ## 시작은 포장지 한 줄
 
