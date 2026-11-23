@@ -1,8 +1,8 @@
 ---
-title: "포장지에 적힌 맛, 정말 느껴질까"
+title: "테이스팅 노트 앱 만들기 0단계 · 포장지에 적힌 맛, 정말 느껴질까"
 description: "테이스팅 노트 체감 기록 앱을 만들기로 한 이유와 만들어 갈 방식"
 pubDatetime: 2026-11-20T16:20:00+09:00
-modDatetime: 2026-11-23T10:45:00+09:00
+modDatetime: 2026-11-23T13:55:00+09:00
 tags: ["tastingnote", "android"]
 ---
 
