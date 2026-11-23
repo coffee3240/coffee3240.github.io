@@ -2,7 +2,7 @@
 title: "테이스팅 노트 앱 만들기 0단계 · 포장지에 적힌 맛, 정말 느껴질까"
 description: "테이스팅 노트 체감 기록 앱을 만들기로 한 이유와 만들어 갈 방식"
 pubDatetime: 2026-11-20T16:20:00+09:00
-modDatetime: 2026-11-23T13:55:00+09:00
+modDatetime: 2026-11-23T21:50:00+09:00
 tags: ["tastingnote", "android"]
 ---
 
@@ -15,7 +15,11 @@ tags: ["tastingnote", "android"]
 
 원두 봉투에는 보통 이런 줄이 있다. "블루베리, 자스민, 꿀."
 
-<!-- TODO(사진): 원두 봉투의 테이스팅 노트 부분 사진. 받으면 Claude가 넣음 -->
+![원두 카드의 노트 줄: 적포도 / 머스커바도 설탕 / 카다멈 / 포도젤리](../../assets/images/tastingnote/bean-label-brazil.jpg)
+*원두와 함께 온 카드. 맨 아래 "노트" 줄*
+
+![원두 봉투 라벨: Yirgacheffe Aricha G1 / Washed / M- Light, 특징: 군밤, 군고구마, 단호박의 단 맛](../../assets/images/tastingnote/bean-label-yirgacheffe.jpg)
+*다른 원두 봉투의 라벨. "특징"이라는 이름으로 적혀 있다*
 
 마셔 보면 어떤 건 느껴지고, 어떤 건 끝까지 모르겠다. 그런데 기록을 해도 남는 건 "맛있었다"나 "별로였다" 정도다. 적힌 노트 중 무엇을 실제로 느꼈는지는 어디에도 남지 않는다.
 
