@@ -15,11 +15,8 @@ tags: ["tastingnote", "android"]
 
 원두 봉투에는 보통 이런 줄이 있다. "블루베리, 자스민, 꿀."
 
-![원두 카드의 노트 줄: 적포도 / 머스커바도 설탕 / 카다멈 / 포도젤리](../../assets/images/tastingnote/bean-label-brazil.jpg)
-*원두와 함께 온 카드. 맨 아래 "노트" 줄*
-
-![원두 봉투 라벨: Yirgacheffe Aricha G1 / Washed / M- Light, 특징: 군밤, 군고구마, 단호박의 단 맛](../../assets/images/tastingnote/bean-label-yirgacheffe.jpg)
-*다른 원두 봉투의 라벨. "특징"이라는 이름으로 적혀 있다*
+![왼쪽은 원두 카드의 노트 줄(적포도 / 머스커바도 설탕 / 카다멈 / 포도젤리), 오른쪽은 원두 봉투 라벨의 특징 줄(군밤, 군고구마, 단호박의 단 맛)](../../assets/images/tastingnote/bean-labels.jpg)
+*왼쪽은 원두와 함께 온 카드의 "노트", 오른쪽은 봉투 라벨의 "특징"*
 
 마셔 보면 어떤 건 느껴지고, 어떤 건 끝까지 모르겠다. 그런데 기록을 해도 남는 건 "맛있었다"나 "별로였다" 정도다. 적힌 노트 중 무엇을 실제로 느꼈는지는 어디에도 남지 않는다.
 
