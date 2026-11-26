@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" width="720" height="230" font-family="-apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#5a4636"/>
+    </marker>
+  </defs>
+  <rect width="720" height="230" rx="12" fill="#ffffff"/>
+  <g font-size="16" text-anchor="middle" fill="#2b211a">
+    <rect x="30" y="85" width="150" height="56" rx="10" fill="#f3ebe3" stroke="#5a4636" stroke-width="1.5"/>
+    <text x="105" y="118" font-weight="600">ViewModel</text>
+    <rect x="285" y="85" width="150" height="56" rx="10" fill="#f3ebe3" stroke="#5a4636" stroke-width="1.5"/>
+    <text x="360" y="118" font-weight="600">기록 화면</text>
+    <rect x="540" y="85" width="150" height="56" rx="10" fill="#f3ebe3" stroke="#5a4636" stroke-width="1.5"/>
+    <text x="615" y="118" font-weight="600">입력 창</text>
+  </g>
+  <g stroke="#5a4636" stroke-width="1.8" fill="none" marker-end="url(#a)">
+    <path d="M150 85 C 190 40, 250 40, 300 83"/>
+    <path d="M405 85 C 445 40, 505 40, 555 83"/>
+    <path d="M570 141 C 530 186, 470 186, 420 143"/>
+    <path d="M315 141 C 275 186, 215 186, 165 143"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="#5a4636">
+    <text x="225" y="36">원두 목록</text>
+    <text x="480" y="36">열렸는지</text>
+    <text x="495" y="205">추가해 줘(이름)</text>
+    <text x="240" y="205">추가(이름)</text>
+  </g>
+</svg>
